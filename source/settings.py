@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary_stroge
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "user",
     "products",
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +126,13 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'shopsite/products/images')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'source-admin',
+    'API_KEY': '779927426846196',
+    'API_SECRET': 'wh0OQcfFPfXb5LLpN6HfXqJlmMA'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
