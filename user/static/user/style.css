@@ -1,0 +1,98 @@
+
+#register {
+  height: 550px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.jumbotron {
+  border: 10px solid black;
+  width: 1100px;
+  height: 1200px;
+  padding: 0px;
+  background-color: rgba(0,0,0,0.5) !important;
+  text-align: left;
+  
+}
+
+
+#login {
+  height: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+#password_reset {
+  height: 430px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.first_leter {
+  text-transform: capitalize;
+}
+
+img {
+  width: 380px;
+  height: 380px;
+  margin-top: 10px;
+  margin-left: 25px;
+  float: left;
+  border: 5px solid black;
+}
+
+.profile {
+  height: auto !important;
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+  width: 80% !important;
+  background-color: rgba(0,0,0,0.5) !important;
+  color: white;
+}
+
+.on-right {
+  float: right;
+  margin-right: 30px;
+  margin-top: 25px;
+}
+
+.on-bottom {
+  float: right;
+  margin-top: 120px;
+  margin-right: 30px;
+}
+
+.main-text {
+  float: left;
+  margin-left: 60px;
+  
+}
+
+.line {
+  border: 3px solid black;
+  width: 1090px;
+  height: 0px;
+  background-color: rgba(0,0,0,0.5) !important;
+  margin-top: 40px;
+  float: top;
+  padding: 0px;
+}
+
+.jumbotron2 {
+  border: 5px solid black;
+  width: 550px;
+  height: 300px;
+  padding-top: 4px;
+  padding-left: 15px;
+  background-color: rgba(0,0,0,0.5) !important;
+  margin-left: 460px;
+  margin-top: 100px;
+  word-wrap: break-word;
+  overflow:hidden;
+}

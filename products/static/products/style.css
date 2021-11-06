@@ -1,0 +1,33 @@
+#new_product {
+  height: 700px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 500px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+#new_category {
+  height: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+  margin-left: 25px;
+  float: left;
+  border: 5px solid black;
+}
+
+.jumbotron {
+  border: 5px solid black;
+  width: 1100px;
+  height: 300px;
+  padding: 0px;
+
+  background-color: rgba(0,0,0,0.5) !important;
+}

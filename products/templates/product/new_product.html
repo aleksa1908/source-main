@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block head_title %}New Product{% endblock %}
+
+{% block static %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'products/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  {% include 'navbar.html' %}
+  <br>
+  {% csrf_token %}
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card" id="new_product">
+        <div class="card-header">
+          <h3>New Product</h3>
+        </div>
+        <div class="card-body">
+          <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="input-group form-group">
+                {{ field }}
+              </div>
+              {% for error in field.errors %}
+                <p class="bg-warning">{{ error }}</p>
+              {% endfor %}
+            {% endfor %}
+            <input type="submit" value="Save" class="btn login_btn">
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Changed your mind? <a href="/dashboard/">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

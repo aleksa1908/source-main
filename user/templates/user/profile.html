@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block head_title %}Profile{% endblock %}
+
+{% block static %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'user/style.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% include 'navbar.html' %}
+  <br>
+      <div class="jumbotron">
+        <p class="on-right"><a class="btn btn-primary" href="/dashboard/">Dashboard</a></p>
+        {% if request.user.pk == object.pk %}
+            <p class="on-right"><a class="btn btn-primary" href="change_password/">Change password</a></p>
+          {% endif %}
+        {% if object.image %}
+          <p><b></b><br>
+            <img class="img" src="{{ object.image.url }}" alt="Profile Image">
+          </p>
+        {% endif %}
+        <br><br><br>
+        <div class="main-text">
+          <p><b><font style="color:white" size="+2">Full Name: </font></b><font style="color:white" size="+2">{{ object.first_name }} {{ object.last_name }}</font></p>
+          <p><b><font style="color:white" size="+2">Email: </font></b><font style="color:white" size="+2">{{ object.email }}</font></p>
+        </div>
+        <div class="jumbotron2">
+          <p><b><font style="color:white" size="+2">About: </font></b><font style="color:white" size="+2">{{ object.about }}</font></p>
+        </div>
+        <div class="line">
+
+        </div>
+      </div>
+{% endblock %}

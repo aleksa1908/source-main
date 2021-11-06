@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block head_title %}New Category{% endblock %}
+
+{% block static %}
+  {% load static %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'products/style.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+{% csrf_token %}
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card" id="new_category">
+      <div class="card-header">
+        <h3>New Category</h3>
+      </div>
+      <div class="card-body">
+        <form action="" method="post">
+          {% csrf_token %}
+            <div class="input-group form-group">
+              {{ form.name }}
+            </div>
+            {% for error in form.name.errors %}
+              <p class="bg-warning">{{ error }}</p>
+            {% endfor %}
+          <input type="submit" value="Save" class="btn login_btn">
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+          Changed your mind? <a href="/dashboard/">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

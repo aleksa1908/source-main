@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block head_title %}Dashboard{% endblock %}
+{% block static %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'products/style.css' %}">
+{% endblock %}
+{% block content %}
+
+  {% include 'navbar.html' %}
+  <p></p>
+  <h1 class="display-4"  style="color:white">Dashboard</h1><hr>
+  <ul class="list-unstyled list-group">
+
+  {% for product in object_list %}
+  <li>
+
+    <div class="container">
+      <div class="jumbotron">
+        {% if product.image %}
+          <a href="product/{{product.id}}">
+            <img class="img" src="{{ product.image.url }}" alt="Image is not posted.">
+          </a>
+        {% endif %}
+          <br><br>
+          <b><font style="color:white" size="+2">Title: </font></b><a class="text-success" href="product/{{product.id}}"><font style="color:white" size="+2">{{ product.name }}</font></a>
+        <p></p>
+          <p><b style="color:white"><font style="color:white" size="+2">Category: </font></b><font style="color:white" size="+2">{{product.category}}</font></p>
+          <b><font style="color:white" size="+2">Seller: </font></b><a href="/user/{{product.seller.id}}/profile"><font style="color:white" size="+2"> {{ product.seller.first_name }} {{ product.seller.last_name }}</font></a>
+          <p></p>
+          <p><b><font style="color:white" size="+2">Updated: </font></b><font style="color:white" size="+2">{{ product.updated_at|date:"d. F Y. - G:i" }}</font></p>
+
+      </div>
+     </div>
+   </li>
+   {% endfor %}
+ </ul>
+
+{% endblock %}

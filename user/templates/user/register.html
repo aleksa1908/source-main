@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block head_title %}Register{% endblock %}
+
+{% block static %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'user/style.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card" id="register">
+        <div class="card-header">
+          <h3>Sign Up</h3>
+        </div>
+        <div class="card-body">
+          <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
+                </div>
+                {{ field }}
+              </div>
+              {% for error in field.errors %}
+                <p class="bg-warning">{{ error }}</p>
+              {% endfor %}
+            {% endfor %}
+            <input type="submit" value="Register" class="btn login_btn">
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Changed your mind? <a href="{% url 'login' %}">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block head_title %}Product{% endblock %}
+
+{% block static %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'products/style-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  {% include 'navbar.html' %}
+    <br><div class="container">
+      <div class="jumbotron">
+        {% if object.image %}
+          <a href="{{ object.image.url }}"><img class="img" src="{{ object.image.url }}" alt="Image is not posted."></a>
+        {% endif %}
+          <p></p>
+          <hr>
+        <p><b><font style="color:white" size="+2">Category: </font></b><font style="color:white" size="+2">{{ product.category }}</font></p>
+        <p><b><font style="color:white" size="+2">Product name: </font></b><font style="color:white" size="+2">{{ product.name }}</font></p>
+        <p><b><font style="color:white" size="+2">Seller: </font></b><font style="color:white" size="+2">{{ product.seller.first_name }} {{ product.seller.last_name }}</font></p>
+          <hr>
+        <p><b><font style="color:white" size="+2">Product created: </font></b><font style="color:white" size="+2">{{ object.created_at|date:"d. F Y. - G:i" }}</font></p>
+        <p><b><font style="color:white" size="+2">Product updated: </font></b><font style="color:white" size="+2">{{ object.updated_at|date:"d. F Y. - G:i" }}</font></p>
+        {% if user.id == product.seller.id %}
+        <hr>
+        <a class="btn btn-primary" href="edit/">Edit</a>
+        <a class="btn btn-danger" href="delete/">Delete</a>
+          {% elif user.id != product.seller.id %}
+            <br><br>
+        {% endif %}
+        <p>{{ object.content }}</p><hr>
+        <a class="btn btn-primary btn-lg btn-block" href="/dashboard/">Back to dashboard</a>
+        <br>
+        <b><font style="color:white" size="+2">Description:</font></b>
+        <br><br><br>
+        <div class="jumbotron2">
+          <p><font style="color:white" size="+2">{{ object.description }}</font></p>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}
