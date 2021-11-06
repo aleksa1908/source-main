@@ -11,7 +11,7 @@ from django.http import Http404
 class RegisterUserView(CreateView):
     form_class = RegisterUserForm
     template_name = 'user/register.html'
-    success_url = '('/user/login/')'
+    success_url = '('http://127.0.0.1:8000/user/login/')'
 
 
 class LoginView(FormView):
@@ -32,7 +32,7 @@ class LoginView(FormView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect('/user/login/')
+        return HttpResponseRedirect('http://127.0.0.1:8000/user/login/')
 
 
 class ProfileView(DetailView):
