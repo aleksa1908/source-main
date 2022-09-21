@@ -6,6 +6,7 @@ from products.views import search_view
 
 
 urlpatterns = [
+    path('/', include("products.urls")),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path("dashboard/", include("products.urls")),
